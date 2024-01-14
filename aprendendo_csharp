@@ -1,0 +1,726 @@
+//       Criando objetos
+// Aluno A1 = new();
+// A1.Nome = "Eduardo";
+// A1.Idade = 28;
+// A1.Nota = 9.5;
+// A1.Apresentar();
+
+// Professor p1 = new();
+// p1.Salario = 1404.23M;
+// p1.Nome = "Leonardo";
+// p1.Idade = 20;
+// p1.Apresentar();
+
+// Pessoa pessoa1 = new Pessoa(nome: "Eduardo", sobrenome: "Rodrigues");
+
+// Pessoa pessoa2 = new Pessoa("Emanuelly", "Rodrigues");
+
+// Pessoa pessoa3 = new Pessoa();
+// pessoa3.Nome = "Andrey";
+// pessoa3.Sobrenome = "Pires";
+
+// Curso CursoDeCSharp = new Curso();
+// CursoDeCSharp.Nome = "IntroducaoACSharp";
+// CursoDeCSharp.ListaAlunos = new List<Pessoa>();
+
+// CursoDeCSharp.AdicionarAlunos(pessoa1);
+// CursoDeCSharp.AdicionarAlunos(pessoa2);
+// CursoDeCSharp.AdicionarAlunos(pessoa3);
+
+// CursoDeCSharp.ListarAlunos();
+
+
+// Pessoa pessoa1 = new Pessoa();
+// pessoa1.Nome = "Eduardo";
+// pessoa1.Sobrenome = "Rodrigues";
+// pessoa1.Idade = 28;
+// Console.WriteLine(pessoa1.NomeCompleto);
+// pessoa1.Apresentar();
+
+
+
+// //                      Coleções
+
+// //implemetando um Dictionary
+// Dictionary<string, string> siglaEstado = new Dictionary<string, string>();
+// siglaEstado.Add("RJ", "Rio de Janeiro");
+// siglaEstado.Add("SP", "São Paulo");
+// siglaEstado.Add("MG", "Minas Gerais");
+// siglaEstado.Add("ES", "Espírito Santo");
+
+// foreach (KeyValuePair<string, string> estado in siglaEstado)
+// { //pode substituir o KeyValuePair <> por var
+//     Console.WriteLine($"Chave: {estado.Key}, Valor: {estado.Value}");
+// }
+
+// //removendo uma chave/valor
+// siglaEstado.Remove("ES"); //passa a chave como parametro
+
+// //alterando o valor
+// siglaEstado["MG"] = "Minas";
+
+// //verificando se a chave já existe no dicionário
+// string verificarChave = "RJ";
+
+// if (siglaEstado.ContainsKey(verificarChave))
+// {
+//     Console.WriteLine("Chave existente.");
+// }
+// else
+// {
+//     Console.WriteLine("Chave inexistente. É permitido cadastrá-la.");
+// }
+
+// //Para acessar o valor
+// Console.WriteLine(siglaEstado["MG"]);
+
+
+
+
+
+// implementando uma pilha
+// Stack<int> pilha = new();
+// pilha.Push(1);
+// pilha.Push(2);
+// pilha.Push(3);
+// int i = 1;
+// foreach (int item in pilha)
+// {
+    
+//     Console.WriteLine($"{i}º item da pilha: {item}");
+//     i++;
+// }
+
+// pilha.Pop();
+// pilha.Push(100);
+
+// Console.WriteLine("Pilha pós remoção e adição.");
+// i = 1;
+// foreach (int item in pilha)
+// {
+ 
+//     Console.WriteLine($"{i}º item da pilha: {item}");
+//     i++;
+// }
+
+
+
+
+//implemetando uma fila
+// Queue<int> fila = new Queue<int>();
+// fila.Enqueue(1);
+// fila.Enqueue(2);
+// fila.Enqueue(3);
+// fila.Enqueue(4);
+// fila.Enqueue(5);
+
+// int contaFila = fila.Count;
+
+// for (int i = 0; i < contaFila; i++)
+// {
+//     Console.WriteLine($"Removendo o item: {fila.Dequeue()}");
+// }
+
+
+
+
+
+//tratando exceções
+
+// try
+// {
+//     string [] leituraArquivo = File.ReadAllLines("Arquivos/arquivo_leitura");
+//     foreach (string linhas in leituraArquivo)
+//     {
+//         Console.WriteLine($"{linhas}");
+//     }
+// }catch (FileNotFoundException tratar) //Exceção específica, sendo uma boa prática colocá-las primeiro.
+// {
+//     Console.WriteLine($"Ocorreu um erro: arquivo não encontrado. {tratar.Message}");
+// }
+// catch (DirectoryNotFoundException tratar)
+// {
+//     Console.WriteLine($"Ocorreu um erro: diretório não encontrado. {tratar.Message}");
+// }
+// catch (Exception tratar) //Exceção genérica
+// {
+//     Console.WriteLine($"Ocorreu um erro: {tratar.Message}");
+// }
+// finally
+// {
+//     Console.WriteLine("Executa o bloco de código "+ 
+//                     "havendo ou não uma exceção");
+// }
+
+// Console.WriteLine("Para demonstrar que o código continua "+ 
+//                     "sendo lido mesmo com uma exceção");
+
+
+
+
+
+
+
+//leitura de arquivos
+// string [] leituraArquivo = File.ReadAllLines("Arquivos/arquivoLeitura.txt");
+
+// foreach (string linhas in leituraArquivo)
+// {
+//     Console.WriteLine($"{linhas}");
+// }
+
+
+
+
+
+
+
+
+
+//    Usando DateTime
+// string dataParaConverter = "03-00-2024 23:53";
+
+// bool converter = DateTime.TryParseExact(dataParaConverter,
+//                                         "dd-MM-yyyy HH:mm",
+//                                         CultureInfo.InvariantCulture,
+//                                         DateTimeStyles.None,
+//                                         out DateTime dataConvertida);
+
+// if (converter)
+// {
+//     Console.WriteLine($"Conversão com sucesso! Data: {dataConvertida}");
+// }
+// else
+// {
+//     Console.WriteLine("Data inválida.");
+// }
+
+//      Para trabalhar com datas e horário: use a classe DateTime
+// DateTime data = DateTime.Now;
+
+//      Exemplos de formatação
+// Console.WriteLine(data.ToString("dd-MM-yyyy HH:mm"));
+// Console.WriteLine(data.ToString("dd/MM/yyyy HH:mm"));
+// Console.WriteLine(data.ToString("dd-MM-yyyy hh:mm"));
+// Console.WriteLine(data.ToString("yyyy/MM/dd HH:mm"));
+
+
+
+
+
+
+
+
+//            Valores Monetários
+//decimal valorMonetario = 1589.40M;
+//Console.WriteLine($"{valorMonetario:C}");
+//Usar o tipo decimal e o M depois do valor 
+//:C => pega dados do sistema operacional para definir a moeda
+
+//Alterar a localização
+//using System. Globalization;
+//CultureInfo.DefaultThreadCurrent = 
+//new CultureInfo("pt-BR, en-US")
+//Desvantagem: altera todo a configuração do programa
+
+//Alterar de forma específica
+//Console.WriteLine(valorMonetario.ToString(
+//"C", CultureInfo.CreateSpecificCulture("en-US"))
+//Consultar documentação para ver os formatos
+
+
+
+
+
+
+
+
+
+// List<String> estados = new List<string>();
+
+// estados.Add("RJ");
+// estados.Add("SP");
+// estados.Add("MG");
+// estados.Add("ES");
+
+// //Percorrendo a lista com FOR
+
+// for(int i = 0; i < estados.Count; i++)
+// {
+//     Console.WriteLine($"Posição {i} - O estado é {estados[i]}");
+// }
+
+// //Percorrendo a lista com FOREACH
+// int contador = 0;
+// foreach (string item in estados)
+// {
+//     Console.WriteLine($"Posição {contador} - O estado é {item}");
+//     contador++;
+// }
+
+
+
+
+
+
+
+//              Usando Arrays
+// int[] arrayInteiros = new int[3];
+// arrayInteiros[0] = 23;
+// arrayInteiros[1] = 32;
+
+
+// // for (int i = 0; i < arrayInteiros.Length; i++)
+// // {
+// //     Console.WriteLine($"Posição {i} - {arrayInteiros[i]}");
+// // }
+
+
+// // int contador = 0;
+// // foreach (int valor in arrayInteiros)
+// // {
+// //     Console.WriteLine($"Posição {contador} - {valor}");
+// //     contador++;
+// // }
+
+// //Array.Resize(ref arrayInteiros, arrayInteiros.Length * 2); //redimensionar o array
+
+// int [] copiandoArray = new int[arrayInteiros.Length * 2];
+// Array.Copy(arrayInteiros, copiandoArray, 3);
+
+
+//          Usando Switch Case
+// string opcao;
+// bool execucaoPrograma = true;
+
+// while(execucaoPrograma)
+// {
+//     Console.WriteLine("Digite a opção: \n 1 - Cadastrar cliente \n 2 - Consultar cliente \n 3 - Apagar cliente \n 4 - Encerrar");
+//     opcao = Console.ReadLine();
+
+//     switch(opcao)
+//     {
+//         case "1": Console.WriteLine("Cliente cadastrado.");
+//         break;
+//         case "2": Console.WriteLine("Cliente consultado.");
+//         break;
+//         case "3": Console.WriteLine("Cliente apagado.");
+//         break;
+//         case "4": Console.WriteLine("Encerrar.");
+//         // Para encerrar o programa >>Environment.Exit(0);
+//         execucaoPrograma = false;
+//         break;
+//         default: Console.WriteLine("Opção inválida.");
+//         break;
+//     }
+// }
+
+// Console.WriteLine("Programa encerrado.");
+
+
+
+
+// Implementando a classe Calculadora
+//Para chamar a classe criada
+// Calculadora calc = new Calculadora();
+
+// Console.WriteLine("Digite o valor do primeiro número: ");
+// double x = calc.LerNumero();
+
+// Console.WriteLine("Digite o valor do segundo número: ");
+// double y = calc.LerNumero();
+
+// calc.Somar(x, y);
+// calc.Subtrair(x, y);
+// calc.Multiplicar(x, y);
+// calc.Dividir(x, y);
+// calc.Potencia(x, y);
+// calc.Coseno(x);
+// calc.Seno(x);
+// calc.Tangente(x);
+// calc.RaizQuadrada(x);
+
+
+//                                                          Exercícios
+
+//Exercício Explorando Sintaxe e tipos de Dados
+class Program
+{
+    static void Main()
+    {
+        // Solicita o nome do usuário, quilômetros percorridos por dia, 
+       // Horas de uso de eletrônicos por dia e o número de refeições com carne:
+       string nome = Console.ReadLine();
+       double quilometrosPorDia = double.Parse(Console.ReadLine());
+       int horasDeEletronicos = int.Parse(Console.ReadLine());
+       int refeicoesComCarne = int.Parse(Console.ReadLine());
+
+        // Chama o método para calcular a pegada de carbono
+        double pegadaDeCarbono = CalcularPegadaDeCarbono(quilometrosPorDia, horasDeEletronicos, refeicoesComCarne);
+        
+        // TODO: Exiba o resultado para o usuário:
+        Console.WriteLine($"{nome}, sua pegada de carbono e de {pegadaDeCarbono} toneladas de CO2 por ano.");
+
+        // Aguarda a entrada do usuário antes de encerrar o programa:
+        Console.ReadLine();
+    }
+
+    // TODO: Crie um método/função para calcular a pegada de carbono com base nos parâmetros fornecidos:
+    static double CalcularPegadaDeCarbono (double quilometrosPorDia, int horasDeEletronicos, int refeicoesComCarne)
+    {
+      double calcKM = quilometrosPorDia * 365 * 0.2;
+      double calcHoras = horasDeEletronicos * 0.1;
+      double calcRefs = refeicoesComCarne * 0.5;
+      
+      double calcCarbono = calcKM + calcHoras + calcRefs;
+      
+      return calcCarbono;
+    }
+}
+
+//Exercício Dominando Operadores
+
+class Program
+{
+    static void Main()
+    {
+
+// TODO: Crie as variáveis titulo, descricao e dataVencimento para guardar as informações das tarefas:
+     string titulo;
+     string descricao;
+     string dataVencimento;
+        
+ // Obtém o titulo e a descricao a partir da entrada do console  
+    titulo = Console.ReadLine();
+    descricao = Console.ReadLine();
+    
+// TODO: Crie uma estrutura condicional 'if/else' para verificar se a descrição da tarefa excede 50 caracteres.
+     if (descricao.Length < 50)
+     {
+      // Caso a descricao esteja dentro do limite é solicitado a entrada pelo console:
+        dataVencimento = Console.ReadLine();
+        Console.WriteLine(descricao + " ate " + dataVencimento);
+     }
+     else
+     {
+       Console.WriteLine("Descricao ultrapassa limite de caracteres.");
+     }
+
+        }
+    }
+
+// Exercício Desvendando o Controle de Fluxo
+
+class Program
+{
+    static void Main()
+    {
+    // Solicita ao usuário os limites inferiores e superiores
+    int limiteInferior = int.Parse(Console.ReadLine());
+    int limiteSuperior = int.Parse(Console.ReadLine());
+
+    // Variável para acumular a soma dos números pares
+    int somaPares = 0;
+
+    // TODO: Crie um Loop para percorrer os números no intervalo
+    // Lembre-se: O limiteSuperior deve ser menor ou igual a i;
+    for (int i = limiteInferior; i <= limiteSuperior; i++)
+    {
+      if (i % 2 == 0)
+      {
+        somaPares+= i;
+      }
+    }
+    // TODO: Implemente o if para verificar se o número é par:
+        
+    
+    // TODO: Crie o acumulador para a soma dos números pares:
+           
+    
+
+    // Exibe o resultado
+    Console.WriteLine($"A soma dos numeros pares de {limiteInferior} a {limiteSuperior} e: {somaPares}");
+    }
+}
+
+// Exercício Utilizando Array e Listas
+
+class Program
+{
+    static void Main()
+    {
+        // Pergunta ao usuário quantos jogos deseja adicionar:
+        int quantidadeJogos = int.Parse(Console.ReadLine());
+
+        // TODO: Inicializa os arrays com base na quantidade informada pelo usuário:
+       string [] nomesJogos = new string[quantidadeJogos];
+
+        // TODO: Crei um Loop para adicionar jogos conforme a quantidade especificada:
+       for (int indice = 0; indice < quantidadeJogos; indice++)
+       {
+         AdicionarJogo(indice, nomesJogos);
+       }
+
+        //TODO: Chame a função AdicionarJogo para obter o nome do jogo e armazená-lo no array:
+       
+
+        // Exibe o resumo da adição de jogos
+        ExibirResumoAdicaoJogos(quantidadeJogos, nomesJogos);
+    }
+
+    static void AdicionarJogo(int indice, string[] nomesJogos)
+    {
+        // Entrada do nome do jogo
+        nomesJogos[indice] = Console.ReadLine();
+    }
+
+    static void ExibirResumoAdicaoJogos(int quantidadeJogos, string[] nomesJogos)
+    {
+        Console.WriteLine($"Foi adicionado '{quantidadeJogos}' jogos: {string.Join(", ", nomesJogos)} ao catalogo.");
+    }
+}
+
+// Exercício Manipulando Funções
+
+class Program
+{
+    static void Main()
+    {
+        // Solicita o nome do usuário, quilômetros percorridos por dia, 
+       // Horas de uso de eletrônicos por dia e o número de refeições com carne:
+       string nome = Console.ReadLine();
+       double quilometrosPorDia = double.Parse(Console.ReadLine());
+       int horasDeEletronicos = int.Parse(Console.ReadLine());
+       int refeicoesComCarne = int.Parse(Console.ReadLine());
+
+        // Chama o método para calcular a pegada de carbono
+        double pegadaDeCarbono = CalcularPegadaDeCarbono(quilometrosPorDia, horasDeEletronicos, refeicoesComCarne);
+        
+        // TODO: Exiba o resultado para o usuário:
+        Console.WriteLine($"{nome}, sua pegada de carbono e de {pegadaDeCarbono} toneladas de CO2 por ano.");
+
+        // Aguarda a entrada do usuário antes de encerrar o programa:
+        Console.ReadLine();
+    }
+
+    // TODO: Crie um método/função para calcular a pegada de carbono com base nos parâmetros fornecidos:
+    static double CalcularPegadaDeCarbono (double quilometrosPorDia, int horasDeEletronicos, int refeicoesComCarne)
+    {
+      return (quilometrosPorDia * 365 * 0.2)+(horasDeEletronicos * 0.1)+(refeicoesComCarne * 0.5);
+    }
+
+}
+
+// Exercício Primeiro Desafio com POO
+
+class Pessoa
+{
+    public string nome;
+    public int idade;
+    
+    public Pessoa(string n, int i)
+      {
+          nome = n;
+          idade = i;
+      }
+    
+    public string GetNome()
+    {
+        return nome;
+    }
+
+    public int GetIdade()
+    {
+        return idade;
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        string nome = Console.ReadLine();
+
+        int idade = int.Parse(Console.ReadLine());
+
+        Pessoa pessoa = new Pessoa(nome, idade);
+
+        Console.WriteLine($"Nome: {pessoa.GetNome()}, Idade: {pessoa.GetIdade()}");
+    }
+}
+
+// Exercício Utilizando Propriedades e Métodos
+class Robo
+{
+    public int VelocidadeAtual { get; set; } = 0;
+    public int VelocidadeMaxima { get; }
+    public int VelocidadeMinima { get; }
+
+    public Robo(int vmin, int vmax)
+    {
+        VelocidadeMinima = vmin;
+        VelocidadeMaxima = vmax;
+        VelocidadeAtual = vmin;
+    }
+
+    public void Acelerar()
+    {
+        if (VelocidadeAtual < VelocidadeMaxima)
+        {
+            VelocidadeAtual++;
+        }
+    }
+
+    public void Desacelerar()
+    {
+        if (VelocidadeAtual > VelocidadeMinima)
+        {
+            VelocidadeAtual--;
+        }
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+      string[] velocidades = Console.ReadLine().Split(' ');
+      int Vmin = int.Parse(velocidades[0]);
+      int Vmax = int.Parse(velocidades[1]);
+
+      Robo Data = new Robo(Vmin, Vmax);
+
+      string comandos = Console.ReadLine();
+
+      foreach (char comando in comandos)
+      {
+        if (comando == 'A')
+        {
+          Data.Acelerar();
+        }
+        else if (comando == 'D')
+        {
+          Data.Desacelerar();
+        }
+      }
+      Console.WriteLine(Data.VelocidadeAtual);
+    }
+}
+
+// Exercício Criando um Objeto com Atributos
+
+class Jogador
+{
+    public string Nome { get; set; }
+    public string Nacionalidade { get; set; }
+    public int Idade { get; set; }
+    public string Posicao { get; set; }
+
+    public Jogador()
+    {
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Jogador jogador = new Jogador();
+        jogador.Nome = Console.ReadLine();
+        jogador.Nacionalidade = Console.ReadLine();
+        jogador.Idade = int.Parse(Console.ReadLine());
+        jogador.Posicao = Console.ReadLine();
+        
+        Console.WriteLine("Jogador criado!");
+        Console.WriteLine($"{jogador.Nome}");
+        Console.WriteLine($"{jogador.Nacionalidade}");
+        Console.WriteLine($"{jogador.Idade}");
+        Console.WriteLine($"Posição: {jogador.Posicao}");
+    }
+}
+
+// Exercício Utilizando Construtores
+
+class Personagem
+{
+    public string Nome { get; set; }
+    public string Raca { get; set; }
+    public string Classe { get; set; }
+    public int Nivel { get; set; } = 1;
+    public int Vida { get; set; } = 10;
+
+    public Personagem(string nome, string raca, string classe)
+    {
+        Nome = nome;
+        Raca = raca;
+        Classe = classe;
+    }
+
+    public void ExibirStatus()
+    {
+        Console.WriteLine("Status:");
+        Console.WriteLine("Nome:" + Nome);
+        Console.WriteLine("Raça:" + Raca);
+        Console.WriteLine("Classe:" + Classe);
+        Console.WriteLine("Nível:" + Nivel);
+        Console.WriteLine("Vida:" + Vida);
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+      string meuPersonagemNome = Console.ReadLine();
+      string meuPersonagemRaca = Console.ReadLine();
+      string meuPersonagemClasse = Console.ReadLine();
+      
+      Personagem meuPersonagem = new Personagem(meuPersonagemNome, meuPersonagemRaca, meuPersonagemClasse);
+      
+      meuPersonagem.ExibirStatus();
+    }
+}
+
+// Exercício Utilizando Herança e Subclasses
+
+class Personagem
+{
+    public string Nome { get; set; }
+    public int Mana { get; set; }
+
+    public Personagem(string nome, int mana)
+    {
+        Nome = nome;
+        Mana = mana;
+    }
+}
+
+class Subclasse : Personagem
+{
+    public int DanoBase { get; set; }
+
+    public Subclasse(string nome, int mana, int danoBase) : base(nome, mana)
+    {
+        DanoBase = danoBase;
+    }
+
+    public void CalcularDano()
+    {
+        Console.WriteLine(Nome + " atacou e causou " + DanoBase * Mana + " de dano!");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+       string nomePersonagem = Console.ReadLine();
+       int manaPersonagem = int.Parse(Console.ReadLine());
+       int danoBasePersonagem = int.Parse(Console.ReadLine());
+       
+       Subclasse meuPersonagem = new Subclasse(nomePersonagem, manaPersonagem, danoBasePersonagem);
+       
+       meuPersonagem.CalcularDano();
+       
+    }
+}
